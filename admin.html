@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meridian | Verwaltung</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="admin">
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Hauptnavigation">
+        <a class="brand" href="./admin.html" aria-label="Meridian Verwaltung">
+          <span class="brand-mark">M</span>
+          <span>
+            <strong>Meridian</strong>
+            <small>Verwaltung</small>
+          </span>
+        </a>
+
+        <nav class="nav-list">
+          <a class="nav-item active" href="#bestellungen">
+            <span class="icon">□</span>
+            <span>Bestellungen</span>
+          </a>
+          <a class="nav-item" href="#kalender">
+            <span class="icon">▦</span>
+            <span>Kalender</span>
+          </a>
+          <a class="nav-item" href="#wohnungen">
+            <span class="icon">⌂</span>
+            <span>Wohnungen</span>
+          </a>
+          <a class="nav-item" href="#zahlungen">
+            <span class="icon">€</span>
+            <span>Zahlungen</span>
+          </a>
+        </nav>
+
+        <div class="sync-card">
+          <div class="sync-row">
+            <span>Airbnb</span>
+            <strong id="airbnbStatus">Live</strong>
+          </div>
+          <div class="sync-row">
+            <span>Booking.com</span>
+            <strong id="bookingStatus">Live</strong>
+          </div>
+          <button class="secondary-btn" id="syncNow" type="button">Sync</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Heute, 7. Juli 2026</p>
+            <h1>Bestellungen verwalten</h1>
+          </div>
+          <div class="top-actions">
+            <label class="search">
+              <span>⌕</span>
+              <input type="search" id="adminSearch" placeholder="Gast, Wohnung, Kanal" />
+            </label>
+            <a class="secondary-btn" href="./index.html">Kundenseite</a>
+          </div>
+        </header>
+
+        <section class="stats-grid" aria-label="Kennzahlen">
+          <article class="metric">
+            <span>Wohnungen</span>
+            <strong id="adminApartmentCount">2</strong>
+            <small>aktiv vermietet</small>
+          </article>
+          <article class="metric">
+            <span>Bestellungen</span>
+            <strong id="adminOrderCount">0</strong>
+            <small>alle Kanäle</small>
+          </article>
+          <article class="metric">
+            <span>Offen</span>
+            <strong id="adminOpenPayments">€0</strong>
+            <small>Zahlungen ausstehend</small>
+          </article>
+          <article class="metric alert">
+            <span>Konflikte</span>
+            <strong id="adminConflictCount">0</strong>
+            <small>Doppelbuchungen</small>
+          </article>
+        </section>
+
+        <section class="admin-layout">
+          <div class="panel" id="bestellungen">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Bestellungen</p>
+                <h2>Neue und kommende Buchungen</h2>
+              </div>
+              <div class="segmented" role="group" aria-label="Bestellfilter">
+                <button class="active" type="button" data-filter="all">Alle</button>
+                <button type="button" data-filter="open">Offen</button>
+              </div>
+            </div>
+            <div class="order-list" id="adminOrders"></div>
+          </div>
+
+          <div class="panel" id="kalender">
+            <div class="panel-header compact">
+              <div>
+                <p class="eyebrow">Kalender</p>
+                <h2>Belegung diese Woche</h2>
+              </div>
+            </div>
+            <div class="calendar" id="adminCalendar" aria-label="Buchungskalender"></div>
+          </div>
+        </section>
+
+        <section class="lower-grid compact-lower">
+          <div class="panel" id="wohnungen">
+            <div class="panel-header compact">
+              <div>
+                <p class="eyebrow">Wohnungen</p>
+                <h2>Portfolio</h2>
+              </div>
+            </div>
+            <div class="apartment-list" id="adminApartments"></div>
+          </div>
+
+          <div class="panel" id="zahlungen">
+            <div class="panel-header compact">
+              <div>
+                <p class="eyebrow">Zahlungen</p>
+                <h2>Ausstehend</h2>
+              </div>
+            </div>
+            <div class="payment-list" id="adminPayments"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header compact">
+              <div>
+                <p class="eyebrow">Kanäle</p>
+                <h2>Status</h2>
+              </div>
+            </div>
+            <div class="channel-list" id="adminChannels"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

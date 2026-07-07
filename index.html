@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meridian | Wohnung buchen</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="customer">
+    <header class="public-header">
+      <a class="brand brand-dark" href="./index.html" aria-label="Meridian Startseite">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>Meridian</strong>
+          <small>Wohnungen buchen</small>
+        </span>
+      </a>
+      <nav class="header-actions" aria-label="Seitennavigation">
+        <a class="text-link" href="#wohnungen">Wohnungen</a>
+        <a class="text-link" href="#buchung">Buchen</a>
+        <a class="secondary-btn" href="./admin.html">Verwaltung</a>
+      </nav>
+    </header>
+
+    <main class="public-main">
+      <section class="booking-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Direkt buchen</p>
+          <h1>2 Wohnungen, klare Preise, sichere Anfrage.</h1>
+          <p class="lead">Wähle eine Wohnung, prüfe den Zeitraum und sende deine Buchung direkt ab. Bereits belegte Zeiträume werden automatisch blockiert.</p>
+          <div class="trust-row" aria-label="Vorteile">
+            <span>Airbnb Sync</span>
+            <span>Booking.com Sync</span>
+            <span>Website Zahlung</span>
+          </div>
+        </div>
+        <form class="booking-card" id="customerBookingForm">
+          <div class="panel-header compact">
+            <div>
+              <p class="eyebrow">Bestellung</p>
+              <h2>Verfügbarkeit prüfen</h2>
+            </div>
+          </div>
+          <label>
+            Wohnung
+            <select id="customerApartment"></select>
+          </label>
+          <div class="date-row">
+            <label>
+              Anreise
+              <input id="customerCheckIn" type="date" value="2026-07-19" />
+            </label>
+            <label>
+              Abreise
+              <input id="customerCheckOut" type="date" value="2026-07-21" />
+            </label>
+          </div>
+          <label>
+            Name
+            <input id="customerName" type="text" value="" placeholder="Vor- und Nachname" />
+          </label>
+          <label>
+            E-Mail
+            <input id="customerEmail" type="email" value="" placeholder="name@example.com" />
+          </label>
+          <label>
+            Zahlungsart
+            <select id="customerPayment">
+              <option value="Website Zahlung">Website Zahlung</option>
+              <option value="Überweisung">Überweisung</option>
+            </select>
+          </label>
+          <div class="price-box">
+            <span>Gesamtpreis</span>
+            <strong id="customerPrice">€0</strong>
+          </div>
+          <button class="primary-btn wide" type="submit">Bestellung absenden</button>
+          <p class="form-result" id="customerResult" role="status">Bereit für deine Anfrage.</p>
+        </form>
+      </section>
+
+      <section class="section-band" id="wohnungen">
+        <div class="section-heading">
+          <p class="eyebrow">Wohnungen</p>
+          <h2>Aktuell verfügbar</h2>
+        </div>
+        <div class="public-apartments" id="publicApartments"></div>
+      </section>
+
+      <section class="section-band split-info" id="buchung">
+        <div>
+          <p class="eyebrow">Ablauf</p>
+          <h2>So bleibt die Buchung sauber</h2>
+        </div>
+        <div class="step-list">
+          <article>
+            <strong>1. Zeitraum prüfen</strong>
+            <span>Die Website vergleicht deine Daten mit Website-, Airbnb- und Booking.com-Buchungen.</span>
+          </article>
+          <article>
+            <strong>2. Bestellung senden</strong>
+            <span>Wenn der Zeitraum frei ist, wird die Bestellung angelegt und der Zeitraum blockiert.</span>
+          </article>
+          <article>
+            <strong>3. Zahlung abschließen</strong>
+            <span>Website-Zahlungen können später mit Stripe verbunden werden.</span>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
